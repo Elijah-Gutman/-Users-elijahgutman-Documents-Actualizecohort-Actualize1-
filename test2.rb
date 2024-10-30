@@ -12,4 +12,27 @@ item1 = { item: "Gun", price: 300, color: "black" }
 item2 = { item: "Car", price: 33200, color: "blue" }
 item3 = { :item => "booze", :price => 33, :color => "brown" }
 
-pp item1[:item]
+pp item3[:item]
+
+# Exercise:
+# Rewrite your store items using a class instead of a hash.
+# a) Choose which attributes should have “reader” methods and which attributes should have “writer” methods.
+# b) Create an instance from your store item class. Use puts statements to print the 3 attributes individually to the terminal.
+# c) Use the attr_writer method to change a value
+# Bonus: Read more about Ruby classes: https://ruby-doc.com/core/Class.html
+class Store_Items
+  attr_writer :item, :price, :color
+  attr_reader :item, :price, :color
+
+  def initialize(item, price, color)
+    @item = item
+    @price = price
+    @color = color
+  end
+end
+
+item_list1 = Store_Items.new("gun", 300, "black")
+item_list2 = Store_Items.new("car", 33200, "blue")
+item_list3 = Store_Items.new("booze", 33, "brown")
+
+pp item_list1
