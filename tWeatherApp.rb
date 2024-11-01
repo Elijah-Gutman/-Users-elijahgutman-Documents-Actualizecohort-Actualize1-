@@ -20,11 +20,14 @@ while true
     lon = data["coord"]["lon"]
     response2 = HTTP.get("https://api.openweathermap.org/data/2.5/forecast?lat=#{lat}&lon=#{lon}&appid=#{ENV["OPEN_WEATHER_API_KEY"]}&units=imperial")
     data2 = response2.parse
-    print "The 3 day forecast is: "
+    # print "The Temperature for the next 3 days will be "
     n = 1
+    print "The Temperature and the weather for the next 3 days will be "
     3.times do
-      temp_future = data2["list"][8 * n]["main"]["temp"]
-      print "#{temp_future} "
+      temp_future = data2["list"][3 * n]["main"]["temp"]
+      future_weather = data2["list"][3 * n]["weather"][0]["main"]
+      print "#{temp_future}  and"
+      print "#{future_weather} weather. And then tomorrow"
       n += 1
     end
     puts
