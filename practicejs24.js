@@ -27,7 +27,7 @@ var once = function (fn) {
   let result;
 
   return function (...args) {
-    if (hasBeenCalled == false) {
+    if (!hasBeenCalled) {
       result = fn(...args);
       hasBeenCalled = true;
       return result;
