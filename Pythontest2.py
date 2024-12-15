@@ -2,11 +2,11 @@ numbs = range(1, 100)
 
 def is_prime1(num):
     if num < 2:
-        return False  # Exclude numbers less than 2
+        return False  
     for x in range(2, num):
         if (num % x) == 0:
-            return False  # Not prime if divisible
-    return True  # Prime if no divisors found
+            return False  
+    return True  
 
 primes1 = list(filter(is_prime1, numbs))
 print(primes1)
